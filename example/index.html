@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module" src="js/main.js"></script>
+    
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h2>{{ message }}</h2>
+
+            <div class="calculator">
+                <p>Определить сумму двух чисел:</p>
+                <div class="inputs">
+                    <input type="number" v-model="firstSummend" @input = "getSum()">
+                    <span>+</span>
+                    <input type="number" v-model="secondSummend" @input = "getSum()">
+                    <p class="totalSum">= {{totalSum}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

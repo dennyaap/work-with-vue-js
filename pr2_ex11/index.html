@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="form1" v-show="form1">
+                <div class="main-title">Анкета</div>
+                <div class="car-owner">
+                    <div class="title">Вы автовладелец?</div>
+                    
+                    <div class="input">
+                        <div class="input-container"><input type="radio" value="Да" id="yes" v-model="isOwner" checked><label for="yes"> Да</label></div>
+                        <div class="input-container"><input type="radio" value="Нет" id="no" v-model="isOwner"><label for="no"> Нет</label></div>
+                    </div>
+                </div>
+                
+                    <div class="title">Автомобили какой марки вам больше нравятся?</div>
+                    <div class="favorite-cars">
+                        <div class="favorite-cars-item" v-for="item in cars">
+                            <input type="checkbox" :id="item" v-model="currentFavoriteCars" :value="item">
+                            <label :for="item">{{ item }}</label>
+                        </div>
+                    </div>
+
+                    <div class="title">Укажите год вашего рождения:</div>
+                    <div class="birthday">
+                        <input type="number" v-model="currentBirthday">
+                    </div>
+
+                    <div class="title">Выберите себе аватар:</div>
+                    <div class="avatars">
+                        <div class="avatars-item" v-for="(avatar, index) in avatars">
+                            <input type="radio" :id="avatar.title" name="avatar" :value="avatar.src" v-model="currentAvatar" :checked="index == 0">
+                            <label :for="avatar.title"><img class="pic" :src="avatar.src" :alt="avatar.title"></label>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn btnAdd" @click="addOwner">Добавить</button>
+                        <button class="btn btnPublish" @click="publishOwner">Опубликовать</button>
+                        <transition name="animation-success">
+                            <div :class="{success: isDone}" v-if="isDone">
+                                Успешно!
+                            </div>
+                        </transition>
+                    </div>
+
+            </div>
+
+            <div class="form2" v-show="form2">
+                <table>
+                    <tr class="name-fields">
+                        <td>Аватар</td>
+                        <td>Год рождения</td>
+                        <td>Любимые марки машин</td>
+                    </tr>
+                    <tr v-for="owner in carOwners">
+                        <td><img class="pic" :src="owner.avatar" alt="panda"></td>
+                        <td>{{ owner.birthday }} г.</td>
+                        <td>{{ owner.favoriteCars }}</td>
+                    </tr>
+                </table>
+                <div class="buttons">
+                    <button class="btn btnBack" @click="back">Назад</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

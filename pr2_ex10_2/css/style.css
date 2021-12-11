@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#app{
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+.container{
+    padding: 35px;
+    border-radius: 42px;
+    background: rgba(236, 243, 255, 0.65);
+    width: 420px;
+}
+.new-todo{
+    width: 100%;
+    padding: 0px 10px;
+    border: 1px solid rgba(128, 128, 128, 0.548);
+    
+}
+.todoes{
+    min-height: 210px;
+}
+.counters{
+    margin: 10px 0px;
+}
+.item-todo{
+    background: rgba(89, 112, 190, 0.65);
+    border-radius: 6px;
+    margin: 5px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    cursor: pointer;
+}
+.item-todo:hover{
+    opacity: 0.9;
+}
+label{
+    cursor: pointer;
+    margin: 0px 0px 0px 12px;
+    width: 100%;
+    padding: 8px;
+}
+.input{
+    display: flex;
+}
+button{
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    display: flex;
+    width: 100%;
+}
+
+.animation-error-enter-active{
+    animation: error-in .5s;
+}
+.animation-error-leave-active{
+    animation: error-in .5s reverse;
+}
+
+@keyframes error-in{
+    0% {
+        transform: translate(-50%);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+.done{
+    text-decoration: line-through;
+}
+.checkbox{
+    margin: 8px;
+}
+.error{
+    color: rgb(226, 115, 115);
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <div id="app">
+       <div class="container">
+           <div class="animal-container">
+               <div class="input">
+                    <div class="input-container">
+                        <input 
+                        v-model="newAnimal"
+                        @keyup.enter="addAnimal"
+                        type="text" 
+                        placeholder="Введите новое животное..."
+                        :class="{error: isError}">
+
+                        <button @click="addAnimal">Добавить</button>
+                    </div>
+
+                    <div 
+                    :class="{error: isError}"
+                    v-if="isError"
+                    >
+                        Необходимо заполнить данное поле
+                    </div>
+               </div>
+
+               
+               <div class="animal-list">
+                <div 
+                class="animal-item"
+                v-for="item in animals"
+                >
+                {{ item }}
+                </div>
+               </div>
+           </div>
+       </div>
+    </div>
+</body>
+</html>

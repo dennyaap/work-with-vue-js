@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <div id="app">
+       <ul class="array">
+           <!-- <li v-for="item in array">{{ item }}</li> -->
+           <li class="array-li" :class="{ 'active-item': currentIndex === index}" v-for="(item, index) in array" @click="showCurrentItem(item)">{{ index + 1 }} {{ item.title }}</li>
+       </ul>
+
+       <p class="content">{{currentItem.content}}</p>
+
+       <hr>
+
+       <input type="text" v-model="currentTask" @keyup.enter="addTask">
+       <button @click="addTask">Add</button>
+
+       <ul>
+           <li v-for="(item, index) in todos">{{ item }}</li>
+       </ul>
+       
+    </div>
+</body>
+</html>

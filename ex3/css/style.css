@@ -1,0 +1,93 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+input{
+    padding: 10px;
+    border: 3px solid rgba(29, 28, 75, 0.404);
+    color: rgba(29, 28, 75, 0.692);
+    border-radius: 8px;
+}
+input:hover{
+    opacity: 0.9;
+}
+#app{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0px 0px 0px;
+    padding: 35px;
+    border-radius: 12px;
+    background: rgb(121, 114, 214);
+}
+button{
+    cursor: pointer;
+    padding: 8px;
+    width: 120px;
+    color: rgba(29, 28, 75, 0.692);
+    border-radius: 8px;
+    border: none;
+    margin: 0px 0px 0px 10px;
+}
+button:hover{
+    opacity: 0.9;
+}
+#title{
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    color: rgb(255, 255, 255);
+    font-size: 23px;
+    text-align: center;
+    height: 35px;
+    border-bottom: 3px solid rgba(14, 14, 36, 0.404);
+    margin: 0px 0px 32px 0px;
+}
+.guess-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.guess-container{
+    min-width: 350px;
+}
+.guess{
+    display: flex;
+    justify-content: space-between;
+    margin: 17px 0px 0px 0px;
+}
+.guess input{
+    border: 6px solid rgba(113, 233, 177, 0.495);
+}
+.range{
+    display: flex;
+    flex-direction: column;
+}
+.range button{
+    margin: 25px 0px 0px 0px;
+    align-self: center;
+    padding: 15px;
+}
+.range-input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.range-input > input{
+    margin: 0px 0px 10px 0px;
+}
+label{
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    color: rgb(255, 231, 11);
+    letter-spacing: 2px;
+}
+#status{
+    color:rgb(255, 231, 11);
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}

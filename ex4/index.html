@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-container">
+                    <div class="logout"><button id="btn-logout" @click="logout">Выйти</button></div>
+                    <div class="name">{{username}}</div>
+                </div>
+            </nav>
+
+            <div class="rooms">
+                <div class="rooms-container">
+                    
+                    <div class="room">
+                        <div class="image-container">
+                            <img id="img" :src="currentImage" alt="">
+                        </div>
+                    </div>
+                    <div class="rooms-list">
+                        <ul>
+                            <li :class="{ 'active-item': currentIndex === index}" v-for="(item, index) in array" @click="changeImage(item)">{{item.title}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" v-show="visible">
+            <div class="modal-wrapper">
+                <div class="modal-form">
+                    <p>Авторизация</p>
+                    
+                    <input type="text" v-model="username" placeholder="Логин">
+                    <input type="password" v-model="password" placeholder="Пароль">
+                    
+                    <span id="message">{{message}}</span>
+
+                    <button id="btn-login" @click="auth">Войти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+input{
+    border: 1px solid rgba(128, 128, 128, 0.472);
+    padding: 11px 7px;
+    width: 100%;
+    margin: 0px 12px 0px 0px
+}
+.input{
+    padding: 0px 0px 10px 0px;
+    border-bottom: 1px solid rgba(101, 123, 195, 0.513);
+}
+.container{
+    margin: 15px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+}
+.animal-container{
+    width: 450px;
+    padding: 12px;
+}
+.animal-list{
+    margin: 14px 0px 0px 0px;
+}
+.animal-item{
+    padding: 12px;
+    background: rgb(101, 123, 195);
+    color:#fff;
+    margin: 0px 0px 5px 0px;
+}
+input.error{
+    border: 1px solid rgba(238, 141, 124, 0.52);
+}
+div.error{
+    margin: 5px 0px 0px 0px;
+    color: rgb(238, 141, 124);
+}
+.input-container{
+    display: flex;
+    justify-content: space-between;
+}
+button{
+    padding: 12px;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    background: rgb(28, 197, 107);
+    cursor: pointer;
+}

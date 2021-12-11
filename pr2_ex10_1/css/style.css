@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#app{
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+.container{
+    padding: 35px;
+    border-radius: 42px;
+    background: rgba(236, 243, 255, 0.65);
+}
+.title{
+    color: rgba(20, 20, 20, 0.774);
+    font-size: 32px;
+    margin: 0px 0px 16px 0px;
+}
+.description{
+    font-size: 17px;
+    color: rgba(20, 20, 20, 0.774);
+    text-align: justify;
+    margin: 0px 0px 22px 0px;
+}
+.steps{
+    display: flex;
+    flex-wrap: wrap;
+}
+.step{
+    display: flex;
+    align-items: center;
+    width: 180px;
+    cursor: pointer;
+    margin: 5px;
+}
+.step:hover{
+    opacity: 0.9;
+}
+.round{
+    background: rgba(44, 44, 44, 0.164);
+    color:rgba(44, 44, 44, 0.513);
+    margin: 0px 10px 0px 0px;
+    font-weight: bold;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60px;
+}
+.buttons{
+    margin: 22px 0px 0px 0px;
+    display: flex;
+}
+.btn{
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover{
+    opacity: 0.8;
+}
+#back{
+    background: #fff;
+    color: rgb(100, 125, 237);
+    border: 1px solid rgba(100, 125, 237, 0.404);
+    margin: 0px 8px 0px 0px;
+}
+#next{
+    background: rgb(100, 125, 237);
+    color:#fff;
+}
+.active{
+    color: #fff;
+    background: rgb(100, 125, 237);
+}
+.done{
+    background: rgb(100, 125, 237);
+    color: rgb(61, 72, 116);
+}
+#status{
+    padding: 10px 0px 10px 0px;
+    border-top: 1px solid rgba(128, 128, 128, 0.561);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.561);
+    margin: 0px 0px 22px 0px;
+    color: rgb(100, 125, 237);
+}

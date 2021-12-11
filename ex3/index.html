@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div id="title">
+                <p>{{text}}</p>
+            </div>
+            
+            <div class="guess-wrapper">
+                <div class="guess-container">
+                    <p id="status">{{status}}</p>
+                    <div class="range" v-show="rangeVisible">
+                        <div class="min range-input"><label for="#">MIN</label><input type="text" v-model="min"></div>
+                        <div class="max range-input"><label for="#">MAX</label><input type="text" v-model="max"></div>
+
+                        <button @click="makeGuess">Загадать</button>
+                    </div>
+                    <div class="guess" v-show="guessVisible">
+                        <input type="number" placeholder="Введите число" v-model="userNumber">
+                        <!-- {{number}} -->
+                        <button @click="checkNumber">Угадать</button>
+
+                        <button @click="refreshGuess">Заново</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

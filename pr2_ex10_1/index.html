@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="title">Not alone at home</div>
+            <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus cumque aperiam harum molestias natus nulla dolores consequuntur deserunt minima odio atque officiis, fuga in vel repellat a architecto iusto laudantium quae consectetur consequatur animi asperiores cupiditate veritatis. Iure commodi error, reiciendis reprehenderit a voluptate excepturi vel dolorum cupiditate laborum dolor porro fuga, itaque ex vero, laboriosam optio? Sapiente repellendus, possimus iusto ullam dolorem vero modi culpa praesentium fugiat quod corrupti veritatis. Perferendis voluptates commodi quam? Autem doloremque id accusantium magnam quia odio obcaecati quas dolorem doloribus possimus, a vel ad laudantium unde delectus atque aperiam? Atque qui accusantium cum suscipit.</div>
+            <div id="status">{{ currentDescription }}</div>
+            <div class="steps">
+                <div class="step" v-for="(item, index) in steps"><div :class="{done : index < step, active : index == step}" class="round">{{ index + 1 }}</div>{{ item.title }}</div>
+            </div>
+            <div class="buttons">
+                <button class="btn" id="back" @click="currentStep(-1)">Назад</button>
+                <button class="btn" id="next" @click="currentStep(1)">Вперед</button>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

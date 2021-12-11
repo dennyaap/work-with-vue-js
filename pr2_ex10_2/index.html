@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="todo-list">
+                <div class="input-todo">
+                    <div class="input">
+                        <input type="text" placeholder="Новое дело..." class="new-todo" @keyup.enter="addTodo" v-model="newTodo">
+                        <button @click="addTodo"><img src="/pr2_ex10_2/img/sign-add-icon.png" alt=""></button>
+                    </div>
+    
+                    <transition name="animation-error">
+                        <div :class="{error: isError}" v-if="isError">
+                            Необходимо заполнить данное поле...
+                        </div>
+                    </transition>
+                </div>
+
+                <div class="counters">
+                    <div class="count-todo">Всего дел: {{ countTodo }} шт.</div>
+                    <div class="count-todo">Выполнено: {{ countDone }} шт.</div>
+                </div>
+
+                <div class="todoes">
+                    <div v-for="(item, index) in todoList" :key="item.id" class="item-todo">
+                        <input type="checkbox" :id="item.text" :checked="item.done" @change="toggle(item)" class="checkbox">
+                        <label :for="item.text" :class="{done: item.done}">{{ item.text }}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

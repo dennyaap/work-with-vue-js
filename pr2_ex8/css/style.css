@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#app{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    margin: 35px 0px 0px 0px;
+    padding: 35px;
+    border-radius: 42px;
+    background: rgba(236, 243, 255, 0.65);
+}
+.todo{
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid rgb(170, 170, 170);
+    margin: 10px;
+}
+.todo:hover{
+    opacity: 0.8;
+}
+.done{
+    text-decoration: line-through;
+    color: rgb(121, 180, 137);
+}
+.title{
+    margin: 10px;
+    font-size: 18px;
+}
