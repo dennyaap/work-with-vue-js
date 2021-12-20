@@ -17,17 +17,17 @@
             <div class="title">Список заметок</div>
 
             <div class="input">
-                <input type="text" v-model="nameNote" placeholder="Введите название...">
-                <button @click="addNote">Добавить</button>
+                <input type="text" v-model="nameNote" placeholder="Введите название..." @input="checkCountSymbols">
+                <button @click="[addNote]">Добавить</button>
             </div>
-            <div id="status"> {{status}} </div>
+            <div id="status" v-show="isActive"> {{status}} </div>
             <div class="notes">
                 <div v-for="(item, index) in notes" class="note">
                     <div class="note-title">{{ item }}</div>
-                    <div class="btnDelete" @click="deleteNote(index)"><img src="./img/delete-icon.png.crdownload" alt=""></div>
+                    <div class="btnDelete" @click="deleteNote(index)"><img src="https://cdn1.iconfinder.com/data/icons/color-bold-style/21/56-512.png" alt=""></div>
                 </div>
             </div>
-            <div id="count">Общее количество заметок: {{checkCountNotes()}} </div>
+            <div id="count">Общее количество заметок: {{checkCountNotes}} </div>
         </div>
     </div>
 </body>

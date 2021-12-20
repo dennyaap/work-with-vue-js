@@ -80,6 +80,7 @@ span{
     width: 100%;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 .message-item p{
     word-wrap: break-word;

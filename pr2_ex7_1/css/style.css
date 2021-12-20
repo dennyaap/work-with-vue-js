@@ -55,3 +55,7 @@
     margin: 12px 0px 0px 0px;
     font-size: 21px;
 }
+
+.active{
+    background: rgba(53, 192, 123, 0.596);
+}

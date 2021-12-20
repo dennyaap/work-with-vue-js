@@ -134,6 +134,6 @@ li{
 li:hover{
     opacity: 1;
 }
-.active-item{
+li.active-item{
     background: rgb(79, 209, 140);
 }

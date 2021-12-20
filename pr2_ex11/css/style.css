@@ -40,6 +40,7 @@ input{
 .favirite-cars{}
 .pic{
     width: 62px;
+    cursor: pointer;
 }
 .avatars{
     display: flex;

@@ -16,10 +16,11 @@
        
         <div class="container">
             <div class="title">Дела:</div>
-            <li class="todo" @click="done">Прочитать книгу</li>
-            <li class="todo" @click="done">Совершить подвиг</li>
-            <li class="todo" @click="done">Накормить попугая</li>
-            <li class="todo" @click="done">Сходить за покупками</li>
+            <ul>
+                <li class="todo" :class="{done: todo.isDone}" v-for="(todo, index) in todoes" @click="done(todo)">
+                    {{ todo.title }}
+                </li>
+            </ul>
         </div>
     </div>
 </body>

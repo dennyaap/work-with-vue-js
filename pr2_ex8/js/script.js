@@ -3,14 +3,20 @@ const app = {
     
     data() {
         return {
+            todoes: [
+                {title: 'Прочитать книгу', isDone: false},
+                {title: 'Совершить подвиг', isDone: false},
+                {title: 'Накормить попугая', isDone: false},
+                {title: 'Сходить за покупками', isDone: false},
+            ],
         }
     },
     created(){
         
     },
     methods:{
-        done(e){
-            e.currentTarget.classList.toggle('done');
+        done(todo){
+            todo.isDone = !todo.isDone;
         }
     }
 }

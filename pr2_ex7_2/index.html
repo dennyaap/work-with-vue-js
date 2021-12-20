@@ -18,12 +18,12 @@
                 <div class="title">Мысли...</div>
                <span>Введите сообщение:</span>
                <div class="message-container">
-                    <textarea @input="checkCount" name="message" id="currentMessage" cols="30" rows="10"></textarea>
+                    <textarea @input="checkCount" name="message" id="currentMessage" cols="30" rows="10" v-model="currentMessage"></textarea>
                     <div :class="{ warning: countSymbols > maxSymbols }" class="symbols" id="countSymbols">Всего: {{countSymbols}} из {{maxSymbols}}</div>
                </div>
                <div class="send">
                     <button id="btnSend" @click="sendMessage">Опубликовать</button>
-                    <div class="warning">{{status}}</div>
+                    <div class="warning" v-if="isActive">{{ status }}</div>
                </div>
                <div class="messages">
                    <div @dblclick="deleteMessage(index)" class="message-item" v-for="(item, index) in messages">

@@ -1,4 +1,3 @@
-const img = document.getElementById('img');
 const app = {
     
     data() {
@@ -8,10 +7,13 @@ const app = {
             messages: [],
             date: '',
             currentTime: '',
-            status: '',
+            status: 'Недопустимое количество символов!',
             text: '',
             prevElement: {},
-            currentElement: {}
+            currentElement: {},
+            countSymbols: 0,
+            currentMessage: '',
+            isActive: false,
         }
     },
     created(){
@@ -19,24 +21,29 @@ const app = {
     },
     methods:{
         checkCount(){
-            this.countSymbols = document.getElementById('currentMessage').value.trim().length
+            this.countSymbols = this.currentMessage.trim().length;
+
+            if(this.countSymbols > this.maxSymbols){
+                this.isActive = true;
+            }
+            else{
+                this.isActive = false;
+            }
         },
         sendMessage(){
-            this.status = '';
-            this.text = document.getElementById('currentMessage').value;
             this.date = new Date();
             this.currentTime = `${this.date.getHours()}:${this.date.getMinutes()}:${this.date.getSeconds()}`;
             
-            if(this.countSymbols <= this.maxSymbols && this.text.trim().length !== 0){
-                this.messages.push(
+            if(this.countSymbols <= this.maxSymbols && this.currentMessage.trim().length !== 0){
+                this.messages.unshift(
                     {
-                        message: this.text,
+                        message: this.currentMessage,
                         time: this.currentTime
                     }
                 )
             }
             else{
-                this.status = 'Недопустимое количество символов!'
+                this.isActive = true;
             }
         },
         deleteMessage(index){

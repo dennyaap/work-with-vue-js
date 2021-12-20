@@ -1,4 +1,3 @@
-const img = document.getElementById('img');
 const app = {
     
     data() {
@@ -26,7 +25,6 @@ const app = {
         this.currentColor = this.images[0].color;
     },
     methods:{
-        
         setColor(index){
             this.currentImage = this.images[index].image;
             this.currentColor = this.images[index].color;

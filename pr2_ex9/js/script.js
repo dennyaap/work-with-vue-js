@@ -7,28 +7,39 @@ const app = {
                 'Заметка 2'
             ],
             nameNote: '',
-            status: '',
+            status: 'Введите название заметки!',
+            isActive: false
+        }
+    },
+    computed:{
+        checkCountNotes: function(){
+            return this.notes.length;
         }
     },
     created(){
         
     },
     methods:{
-        addNote(){
-            this.status = '';
-            if(this.nameNote.trim().length !== 0){
-                this.notes.push(this.nameNote);
+        checkCountSymbols(){
+            if(this.nameNote.trim().length === 0){
+                this.isActive = true
             }
             else{
-                this.status = 'Введите название заметки!'
+                this.isActive = false;
             }
+        },
+        addNote(){
+            if(this.nameNote.trim().length !== 0){
+                this.notes.unshift(this.nameNote);
+            }
+            else{
+                this.isActive = true;
+            }
+            this.nameNote = '';
         },
         deleteNote(index){
             this.notes.splice(index, 1);
         },
-        checkCountNotes(){
-            return this.notes.length;
-        }
     }
 }
 export {app};

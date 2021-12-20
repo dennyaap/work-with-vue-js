@@ -1,5 +1,3 @@
-const tabsContainer = document.querySelector('#tabsContainer');
-
 const app = {
     data() {
         return {

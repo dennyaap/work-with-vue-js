@@ -30,7 +30,13 @@ const app = {
             ],
             currStep: 0,
             step: 0,
-            currentDescription: ''
+            currentDescription: '',
+            btnBack: 'Назад',
+            btnNext: 'Вперед',
+            btnFinish: 'Начать с начала',
+            isEnd: false,
+            isFinish: false,
+            restartBtn: false
         }
     },
     created(){
@@ -39,23 +45,56 @@ const app = {
     },
     methods:{
         currentStep(value){
-            
-            let stepsLength = this.steps.length;
+            if(!this.isEnd || value < 0){
+                this.isEnd = false;
+                let stepsLength = this.steps.length;
 
-            this.currStep += value;
+                this.currStep += value;
 
-            if(this.currStep >= 0){
+                if(this.currStep >= 0){
+                    this.step = this.currStep;
+                }
+                else{
+                    this.currStep = 0;
+                }
+
+                if(this.currStep >= stepsLength){
+                    this.currStep = stepsLength - 1;
+                }
                 this.step = this.currStep;
+
+                this.checkStep();
             }
             else{
-                this.currStep = 0;
+                this.isFinish = true;
+                this.restartBtn = true; 
             }
+        },
+        selectStep(value){
+            this.currStep = value;
+            this.step = value;
 
-            if(this.currStep >= stepsLength){
-                this.currStep = stepsLength - 1;
-            }
-            this.step = this.currStep;
+            this.checkStep();
+        },
+        checkStep(){
             this.currentDescription = this.steps[this.step].description;
+
+            if(this.step == this.steps.length - 1){
+                this.btnNext = 'Закончить'
+                this.isEnd = true;
+                
+            }
+            else{
+                this.btnNext = 'Вперед'
+            }
+        },
+        restart(){
+            this.isEnd = false;
+            this.isFinish = false;
+            this.btnNext = 'Вперед'
+            this.restartBtn = false;
+            this.isEnd = false;
+            this.selectStep(0)
         }
     }
 }

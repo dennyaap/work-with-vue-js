@@ -18,11 +18,12 @@
             <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus cumque aperiam harum molestias natus nulla dolores consequuntur deserunt minima odio atque officiis, fuga in vel repellat a architecto iusto laudantium quae consectetur consequatur animi asperiores cupiditate veritatis. Iure commodi error, reiciendis reprehenderit a voluptate excepturi vel dolorum cupiditate laborum dolor porro fuga, itaque ex vero, laboriosam optio? Sapiente repellendus, possimus iusto ullam dolorem vero modi culpa praesentium fugiat quod corrupti veritatis. Perferendis voluptates commodi quam? Autem doloremque id accusantium magnam quia odio obcaecati quas dolorem doloribus possimus, a vel ad laudantium unde delectus atque aperiam? Atque qui accusantium cum suscipit.</div>
             <div id="status">{{ currentDescription }}</div>
             <div class="steps">
-                <div class="step" v-for="(item, index) in steps"><div :class="{done : index < step, active : index == step}" class="round">{{ index + 1 }}</div>{{ item.title }}</div>
+                <div class="step" :class="{finish : isFinish}" v-for="(item, index) in steps" @click="selectStep(index)"><div :class="{done : index < step, active : index == step}" class="round">{{ index + 1 }}</div>{{ item.title }}</div>
             </div>
             <div class="buttons">
-                <button class="btn" id="back" @click="currentStep(-1)">Назад</button>
-                <button class="btn" id="next" @click="currentStep(1)">Вперед</button>
+                <button class="btn btnback" :class="{finish : isFinish}" id="back" @click="currentStep(-1)">{{ btnBack }}</button>
+                <button class="btn btnnext" v-if="!isFinish"  id="next" @click="currentStep(1)">{{ btnNext }}</button>
+                <button class="btn btnFinish" v-if="restartBtn" id="next" @click="restart">{{ btnFinish }}</button>
             </div>
         </div>
         
